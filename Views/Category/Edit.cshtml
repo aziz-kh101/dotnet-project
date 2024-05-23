@@ -1,0 +1,22 @@
+﻿@model MyApp.Namespace.CategoryEditModel
+@{
+    ViewData["Title"] = "Update Category";
+}
+
+<h1>Update Category</h1>
+
+<form method="post" asp-action="EditPost" class="d-flex flex-column gap-2 ">
+    <input asp-for="Id" class="form-control" hidden />
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-action="List" class="btn btn-secondary">Back</a>
+</form>

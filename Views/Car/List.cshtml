@@ -1,0 +1,36 @@
+﻿@model MyApp.Namespace.CarListModel
+
+@{
+    ViewData["Title"] = "Car List";
+}
+<div class="d-flex justify-content-between align-items-center ">
+    <h1>Car List</h1>
+    <a href="/Car/Create" class="btn btn-primary">Create New</a>
+</div>
+<table class="table table-dark">
+    <thead >
+        <tr>
+            <th>Model</th>
+            <th>Brand</th>
+            <th>Price</th>
+            <th>Year</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model.Cars)
+        {
+            <tr>
+                <td>@car.Model</td>
+                <td>@car.Brand</td>
+                <td>@car.Price</td>
+                <td>@car.Year</td>
+                <td>
+                    <a href="/Car/Details/@car.Id">Details</a> |
+                    <a href="/Car/Edit/@car.Id">Edit</a> |
+                    <a href="/Car/Delete/@car.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
